@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar({ onLogout }) {
 
@@ -11,7 +12,16 @@ function Navbar({ onLogout }) {
     return (
         <div>
             NAVBAR
-            <button onClick={handleLogout}>log out</button>
+            <Link to="/clients">
+                <div>client list</div>
+            </Link>
+            {/* <Link to="/invoices">
+                <div>invoice list</div>
+            </Link> */}
+            <Link to="/">
+                <button onClick={handleLogout}>log out</button>
+            </Link>
+            
         </div>
     )
 }

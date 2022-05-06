@@ -1,11 +1,10 @@
 
 import './App.css';
 import { useEffect, useState } from 'react';
-import LandingPage from './components/LandingPage';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Login from './components/Login';
-import Signup from './components/Signup';
+
+
+
+import MainContainer from './components/MainContainer';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -21,7 +20,7 @@ function App() {
     });
   }, [])
 
-//sets the current user state when login form is submitted
+  //sets the current user state when login form is submitted
   function onLogin(loggedInUser) {
     setUser(loggedInUser)
   }
@@ -31,32 +30,11 @@ function App() {
     setUser(null)
   }
 
+  return (
 
-  if (user) {
-    return (
+    <MainContainer user={user} onLogin={onLogin} onLogout={onLogout} />
 
-      <div>
-        header
-        <Navbar onLogout={onLogout} />
-        main container
-      </div>
-    )
-  } else {
-    return (
-      <Router>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-        <Route path="/login">
-          <Login onLogin={onLogin} />
-        </Route>
-        <Route path="/signup">
-          <Signup onLogin={onLogin}/>
-        </Route>
-      </Router>
-    )
-  }
-
+  )
 }
 
 export default App;

@@ -1,20 +1,25 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import MainContainer from "./MainContainer"
+import Login from "./Login"
 
 
-
-function LandingPage() {
+function LandingPage( { user, onLogin }) {
     return (
         <div>
             WELCOME
-            {/* <Router> */}
+            {user ? (
+                <>
+                    
+                </>
+            ) : (
+                <>
+                <Login onLogin={onLogin}/>
                 <Link to="/signup">
-                    <button>sign up</button>
+                    <div>sign up here</div>
                 </Link>
-                <Link to="/login">
-                    <button>log in</button>
-                </Link>
-            {/* </Router> */}
+            </>
+            )}
         </div>
     )
 }

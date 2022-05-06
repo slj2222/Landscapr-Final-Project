@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 function Login({ onLogin }) {
     const [username, setUsername] = useState('')
@@ -13,21 +15,14 @@ function Login({ onLogin }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ username: username, password: password }),
+        }).then(res => {
+            if (res.ok) {
+                res.json().then(data => onLogin(data))
+            } else {
+                res.json().then(data => console.log(data))
+            }
         })
-        .then((res) => res.json())
-        .then((user) => onLogin(user))
     }
-
-
-
-
-
-
-
-
-
-
-
 
     return (
         <div>
@@ -41,7 +36,9 @@ function Login({ onLogin }) {
                     password:
                 </label>
                 <input type="text" name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
-                <input type="submit" value="log in"></input>
+                
+                    <input type="submit" value="log in"></input>
+                
             </form>
         </div>
     )
