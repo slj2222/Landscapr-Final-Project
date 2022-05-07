@@ -39,7 +39,11 @@ function MainContainer({ user, onLogin, onLogout }) {
     }
     
     
-    
+    const mapUserClientList = userClientList.map(client => {
+        return (
+            <InvoicesContainer key={client.id} client={client} />
+        )
+    })
     
     return (
 
@@ -54,7 +58,7 @@ function MainContainer({ user, onLogin, onLogout }) {
                         <Route path="/clients" element={<ClientListContainer userClientList={userClientList} />} />
                         <Route path="/login" element={<Login onLogin={onLogin}/>} />
                         
-                        <Route path="/invoices" element={<InvoicesContainer />} />
+                        <Route path="/invoices" element={mapUserClientList} />
                         <Route path="/clients/:id" element={<DetailClientContainer />} />
                         <Route path="/clients/new" element={<NewClientForm updateUserClientList={updateUserClientList} user={user} />} />
 

@@ -1,9 +1,19 @@
 import React from "react";
+import InvoiceSimpleCard from "./InvoiceSimpleCard";
 
-function InvoicesContainer() {
+function InvoicesContainer({ client }) {
+
+
+    const mapClientInvoices = client.invoices.map(invoice => {
+        return (
+            <InvoiceSimpleCard key={invoice.id} invoice={invoice}/>
+        )
+    })
+
+
     return (
-        <div>
-
+        <div className="invoices-container">
+            {mapClientInvoices}
         </div>
     )
 }

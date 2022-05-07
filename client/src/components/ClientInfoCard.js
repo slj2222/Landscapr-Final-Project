@@ -1,17 +1,18 @@
 import React from "react";
-import ClientListPropertyCard from "./ClientListPropertyCard";
+import DetailClientPropertyCard from "./DetailClientPropertyCard";
 
-function ClientInfoCard({ showClient }) {
+
+function ClientInfoCard({ showClient, showClientProperties }) {
     console.log(showClient.properties)
     
 
-    // const mapShowClientProperty = showClient.properties.map(property => {
-    //     return (
-    //         <ClientListPropertyCard  property={property}/>
-    //     )
-    // })
+    const mapShowClientProperties = showClientProperties.map(property => {
+        return (
+            <DetailClientPropertyCard key={property.id} property={property}/>
+        )
+    })
 
-    return (
+       return (
         <div className="client-info-card">
             <div>
                 {showClient.first_name} {showClient.last_name}
@@ -25,9 +26,9 @@ function ClientInfoCard({ showClient }) {
             {/* <Link to={`/clients/${id}`}>
                 <button className="button" >edit = not working</button>
             </Link> */}
-            <div>
+            <div className="client-info-card-properties">
                 needs work ~ client property ~ needs work
-                {/* {mapShowClientProperty} */}
+                {mapShowClientProperties}
             </div>
 
         </div>
