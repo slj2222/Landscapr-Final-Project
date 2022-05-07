@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function ClientListContainer({ userClientList }) {
 
-
+console.log(userClientList)
     const mapUserClientList = userClientList.map(client => {
         return (
             <ClientListCard key={client.id} client={client}/>
