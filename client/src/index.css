@@ -55,6 +55,12 @@ header {
   padding: 25px;
 }
 
+.client-info-card-info {
+  border: 3px solid #424B54;
+  background-color: #DADDD8;
+  margin: 40px;
+  padding: 25px;
+}
 
 .invoice-simple-card {
   border: 3px solid #424B54;

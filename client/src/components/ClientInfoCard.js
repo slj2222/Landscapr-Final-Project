@@ -34,23 +34,37 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
 
        return (
         <div className="client-info-card">
-            <div>
+            <div className="client-info-card-info">
+                <div>
                 {showClient.first_name} {showClient.last_name}
-            </div>
-            <div>
-                client id: {showClient.id}
-            </div>
-            <div>
+                </div>
+                <div>
+                    client id: {showClient.id}
+                </div>
+                <div>
                 {showClient.phone_number} {showClient.email_address}
+                </div>
             </div>
+         
+                
+         
+            
             {/* <Link to={`/clients/${id}`}>
                 <button className="button" >edit = not working</button>
             </Link> */}
+             <button> add a property </button>
             <div className="client-info-card-properties">
-                needs work ~ client property ~ needs work
+               
+                <p>needs work ~ client property ~ needs work</p>
                 {mapShowClientProperties}
             </div>
-            <div className="client-infor-card-invoices">{mapShowClientInvoices}</div>
+            <div className="client-infor-card-invoices">
+                <button> add an invoice</button>
+                <div>
+                    {mapShowClientInvoices}
+                </div>
+            </div>
+            
             <Link to="/clients">
                 <button className="button" onClick={handleDelete}>remove client</button>
             </Link>

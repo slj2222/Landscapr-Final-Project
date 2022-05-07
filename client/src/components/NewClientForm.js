@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 function NewClientForm({ updateUserClientList, user }) {
@@ -46,7 +47,7 @@ function NewClientForm({ updateUserClientList, user }) {
                     <input type="text" placeholder="email address" onChange={(e) => setEmailAddress(e.target.value)} />
                     {/* for some reason the LINK is messing up the POST */}
                     {/* <Link to={"/clients"}> */}
-                    <input type="submit" value="submit" />
+                        <input type="submit" value="submit" />
                     {/* </Link> */}
                 </form>
 
