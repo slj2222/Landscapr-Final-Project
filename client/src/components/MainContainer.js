@@ -6,12 +6,19 @@ import Signup from "./Signup";
 import LandingPage from "./LandingPage";
 import Navbar from "./Navbar";
 import Header from "./Header";
+// import DetailClientContainer from "./DetailClientContainer";
+import InvoicesContainer from "./InvoicesContainer";
+import DetailClientContainer from "./DetailClientContainer";
+import NewClientForm from "./NewClientForm";
 
 
 
 function MainContainer({ user, onLogin, onLogout }) {
     const [userClientList, setUserClientList] = useState([])
     console.log(userClientList)
+    // const [userInvoiceList, setUserInvoiceList] = useState([])
+    // console.log(userInvoiceList)
+    
 
     //GET request to get clients for the user.
     useEffect(() => {
@@ -24,16 +31,17 @@ function MainContainer({ user, onLogin, onLogout }) {
     }, [])
 
 
-
+    
+    
+    function updateUserClientList(newClient) {
+        const plusNewClient = [...userClientList, newClient]
+        setUserClientList(plusNewClient)
+    }
+    
+    
+    
+    
     return (
-
-        //     <Router>
-        //         <Route exact path="/clients">
-        //             <ClientListContainer userClientList={userClientList}/>
-        //         </Route>
-
-        //     </Router>
-        // )
 
         <Router>
             <Header />
@@ -44,7 +52,11 @@ function MainContainer({ user, onLogin, onLogout }) {
                         <Route path="/" element={<LandingPage user={user} onLogin={onLogin} />} />
                         {/* <Route path="/" element={<Navbar onLogout={onLogout}/>} /> */}
                         <Route path="/clients" element={<ClientListContainer userClientList={userClientList} />} />
-                        <Route path="login" element={<Login onLogin={onLogin}/>} />
+                        <Route path="/login" element={<Login onLogin={onLogin}/>} />
+                        
+                        <Route path="/invoices" element={<InvoicesContainer />} />
+                        <Route path="/clients/:id" element={<DetailClientContainer />} />
+                        <Route path="/clients/new" element={<NewClientForm updateUserClientList={updateUserClientList} user={user} />} />
 
                     </>
                 ) : (
@@ -61,29 +73,7 @@ function MainContainer({ user, onLogin, onLogout }) {
     )
 }
 
-    //       <div>
-    //         <Header />
-    //           <Navbar onLogout={onLogout} />
-    //         <Router>
-    //           <MainContainer user={user}/>
-    //         </Router>
-    //       </div>
-    //     )
-    //   } else {
-    //     return (
-    //       <Router>
-    //         <Route exact path="/">
-    //           <LandingPage />
-    //         </Route>
-    //         <Route path="/login">
-    //           <Login onLogin={onLogin} />
-    //         </Route>
-    //         <Route path="/signup">
-    //           <Signup onLogin={onLogin}/>
-    //         </Route>
-    //       </Router>
-    //     )
-    //   }
+    
     
 
 

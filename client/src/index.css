@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+header {
+  display: flexbox;
+  width: 100%;
+  background-color: #424B54;
+  height: 100px;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  background-color: #DADDD8;
+  height: 65px;
+}
+
+.navbar-link {
+  border: 1px solid black;
+  max-width: 100px;
+}
+
+
+
+.client-list-card {
+  border: 5px solid #424B54;
+  margin: 40px;
+  padding: 25px;
+  background-color: #DADDD8;
+}
+
+.client-list-property-card {
+  border: 5px solid #424B54;
+  margin: 40px;
+  padding: 25px;
+  background-color: #DADDD8;
+}
+
+
+.client-info-card {
+  border: 3px solid #424B54;
+  background-color: #DADDD8;
+  margin: 40px;
+  padding: 25px;
+}

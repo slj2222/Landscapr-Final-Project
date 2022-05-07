@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :properties
   resources :invoices
-  resources :clients, only: [:index]
+  resources :clients, only: [:index, :show, :create]
   resources :users, only: [:show, :create]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
