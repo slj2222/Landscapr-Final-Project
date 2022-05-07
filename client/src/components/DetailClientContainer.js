@@ -7,6 +7,7 @@ import CLientListPropertyCard from "./ClientListPropertyCard";
 function DetailClientContainer() {
     const [showClient, setShowClient] = useState([])
     const [showClientProperties, setShowClientProperties] = useState([])
+    const [showClientInvoices, setShowClientInvoices] = useState([])
     const { id } = useParams()
 
 
@@ -15,7 +16,7 @@ function DetailClientContainer() {
             .then(res => res.json())
             .then(data => {
                 setShowClient(data)
-                // setShowClientInvoices(data.invoices)
+                setShowClientInvoices(data.invoices)
                 setShowClientProperties(data.properties)
             })
     }, [id])
@@ -31,7 +32,7 @@ function DetailClientContainer() {
     return (
         <div>
             <div className="detail-client-container">
-                <ClientInfoCard showClient={showClient} showClientProperties={showClientProperties}/>
+                <ClientInfoCard showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices}/>
             {/* {mapShowClientProperties} */}
             {/* <Link to={`/clients/${id}/invoices/new`}> */}
                 <button>add an invoice</button>
@@ -40,9 +41,9 @@ function DetailClientContainer() {
                 <button>add a property</button>
             {/* </Link> */}
 
-            {/* <div> */}
-            {/* {mapShowClientInvoices} */}
-            {/* </div> */}
+            
+            
+            
         </div>
         </div>
     )

@@ -1,14 +1,21 @@
 import React from "react";
 import DetailClientPropertyCard from "./DetailClientPropertyCard";
+import InvoiceSimpleCard from "./InvoiceSimpleCard";
 
 
-function ClientInfoCard({ showClient, showClientProperties }) {
+function ClientInfoCard({ showClient, showClientProperties, showClientInvoices }) {
     console.log(showClient.properties)
     
 
     const mapShowClientProperties = showClientProperties.map(property => {
         return (
             <DetailClientPropertyCard key={property.id} property={property}/>
+        )
+    })
+
+    const mapShowClientInvoices = showClientInvoices.map(invoice => {
+        return(
+            <InvoiceSimpleCard invoice={invoice} />
         )
     })
 
@@ -30,6 +37,7 @@ function ClientInfoCard({ showClient, showClientProperties }) {
                 needs work ~ client property ~ needs work
                 {mapShowClientProperties}
             </div>
+            <div className="client-infor-card-invoices">{mapShowClientInvoices}</div>
 
         </div>
     )
