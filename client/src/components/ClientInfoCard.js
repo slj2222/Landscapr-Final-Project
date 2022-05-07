@@ -1,11 +1,24 @@
 import React from "react";
 import DetailClientPropertyCard from "./DetailClientPropertyCard";
 import InvoiceSimpleCard from "./InvoiceSimpleCard";
+import { Link } from "react-router-dom";
 
 
-function ClientInfoCard({ showClient, showClientProperties, showClientInvoices }) {
+function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList }) {
     console.log(showClient.properties)
     
+
+    function handleDelete() {
+        fetch(`/clients/${showClient.id}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json'}
+            })
+            // .catch(error => console.log(error))
+            // console.log(client)
+            updateDeleteUserClientList(showClient)
+        }
+
+
 
     const mapShowClientProperties = showClientProperties.map(property => {
         return (
@@ -38,7 +51,9 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices }
                 {mapShowClientProperties}
             </div>
             <div className="client-infor-card-invoices">{mapShowClientInvoices}</div>
-
+            <Link to="/clients">
+                <button className="button" onClick={handleDelete}>remove client</button>
+            </Link>
         </div>
     )
 }

@@ -44,6 +44,10 @@ function MainContainer({ user, onLogin, onLogout }) {
             <InvoicesContainer key={client.id} client={client} />
         )
     })
+
+    function updateDeleteUserClientList(deletedClient) {
+        setUserClientList(userClientList.filter(client => client !== deletedClient))
+    }
     
     return (
 
@@ -59,7 +63,7 @@ function MainContainer({ user, onLogin, onLogout }) {
                         <Route path="/login" element={<Login onLogin={onLogin}/>} />
                         
                         <Route path="/invoices" element={mapUserClientList} />
-                        <Route path="/clients/:id" element={<DetailClientContainer />} />
+                        <Route path="/clients/:id" element={<DetailClientContainer updateDeleteUserClientList={updateDeleteUserClientList}/>} />
                         <Route path="/clients/new" element={<NewClientForm updateUserClientList={updateUserClientList} user={user} />} />
 
                     </>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ClientInfoCard from "./ClientInfoCard";
-import CLientListPropertyCard from "./ClientListPropertyCard";
 
 
-function DetailClientContainer() {
+
+function DetailClientContainer({ updateDeleteUserClientList }) {
     const [showClient, setShowClient] = useState([])
     const [showClientProperties, setShowClientProperties] = useState([])
     const [showClientInvoices, setShowClientInvoices] = useState([])
@@ -32,7 +32,7 @@ function DetailClientContainer() {
     return (
         <div>
             <div className="detail-client-container">
-                <ClientInfoCard showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices}/>
+                <ClientInfoCard showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices} updateDeleteUserClientList={updateDeleteUserClientList}/>
             {/* {mapShowClientProperties} */}
             {/* <Link to={`/clients/${id}/invoices/new`}> */}
                 <button>add an invoice</button>

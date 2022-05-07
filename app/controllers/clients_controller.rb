@@ -15,6 +15,11 @@ class ClientsController < ApplicationController
         render json: newClient
     end
 
+    def destroy
+        deleteClient = Client.find(params[:id])
+        deleteClient.destroy
+    end
+
 
     private
 
