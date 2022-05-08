@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :properties
+  resources :properties, only: [:create]
   resources :invoices, only: [:create, :update]
   resources :clients, only: [:index, :show, :create, :destroy]
   resources :users, only: [:show, :create]

@@ -31,13 +31,7 @@ function DetailClientContainer({ updateDeleteUserClientList }) {
         <div>
             <div className="detail-client-container">
                 <ClientInfoCard key={showClient.id} showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices} updateDeleteUserClientList={updateDeleteUserClientList}/>
-            {/* {mapShowClientProperties} */}
-            
-
-            
-            
-            
-        </div>
+            </div>
         </div>
     )
 }

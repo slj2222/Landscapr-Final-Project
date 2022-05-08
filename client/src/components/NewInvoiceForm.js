@@ -45,7 +45,7 @@ function NewInvoiceForm() {
     const mapShowClientProperties = showClientProperties.map(property => {
         console.log(property.id)
         return (
-            <option value={property.id}>{property.address}, {property.city}, {property.state}, {property.zip_code} </option>
+            <option value={property.id}>{property.street_address}, {property.city}, {property.state}, {property.zip_code} </option>
         )
     })
 

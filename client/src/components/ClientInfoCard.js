@@ -52,7 +52,9 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
             {/* <Link to={`/clients/${id}`}>
                 <button className="button" >edit = not working</button>
             </Link> */}
+            <Link to={`/clients/${id}/properties/new`}>
              <button> add a property </button>
+             </Link>
             <div className="client-info-card-properties">
                
                 <p>needs work ~ client property ~ needs work</p>
