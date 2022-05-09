@@ -1,16 +1,15 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import MainContainer from "./MainContainer"
 import Login from "./Login"
 
 
 function LandingPage( { user, onLogin }) {
+    console.log(user)
     return (
         <div>
-            WELCOME
             {user ? (
                 <>
-                    
+                    Welcome, {user.username}! 
                 </>
             ) : (
                 <>

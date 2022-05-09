@@ -23,14 +23,16 @@ function DetailClientContainer({ updateDeleteUserClientList }) {
     }, [id])
 
 
-    
+    function updateDeleteClientPropertiesList(removedProperty) {
+        setShowClientProperties(showClientProperties.filter(property => property !== removedProperty))
+    }
     
     
 
     return (
         <div>
             <div className="detail-client-container">
-                <ClientInfoCard key={showClient.id} showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices} updateDeleteUserClientList={updateDeleteUserClientList}/>
+                <ClientInfoCard key={showClient.id} showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices} updateDeleteUserClientList={updateDeleteUserClientList} updateDeleteClientPropertiesList={updateDeleteClientPropertiesList}/>
             </div>
         </div>
     )

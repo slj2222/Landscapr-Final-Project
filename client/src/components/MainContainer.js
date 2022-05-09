@@ -12,6 +12,8 @@ import DetailClientContainer from "./DetailClientContainer";
 import NewClientForm from "./NewClientForm";
 import NewInvoiceForm from "./NewInvoiceForm";
 import NewPropertyForm from "./NewPropertyForm";
+import EditClientForm from "./EditClientForm";
+import EditPropertyForm from "./EditPropertyForm";
 
 
 
@@ -71,6 +73,8 @@ function MainContainer({ user, onLogin, onLogout }) {
                         <Route path="/clients/new" element={<NewClientForm updateUserClientList={updateUserClientList} user={user} />} />
                         <Route path="/clients/:id/invoices/new" element={<NewInvoiceForm />} />
                         <Route path="/clients/:id/properties/new" element={<NewPropertyForm user={user} />} />
+                        <Route path="/clients/:id/edit" element={<EditClientForm />} />
+                        <Route path="/clients/:id/properties/:id/edit" element={<EditPropertyForm />} />
                     </>
                 ) : (
                     <>

@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function NewPropertyForm({ user }) {
+function EditPropertyForm() {
     const [streetAddress, setStreetAddress] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
     const [quotedAmount, setQuotedAmount] = useState('')
     const { id } = useParams()
+    
 
 
     function handleSubmit(e) {
         e.preventDefault()
         
-        fetch("/properties", {
-            method: 'POST',
+        fetch(`/properties/${id}`, {
+            method: 'PATCH',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
-                client_id: id, 
                 street_address: streetAddress, 
                 city: city, 
                 state: state, 
@@ -56,4 +56,4 @@ function NewPropertyForm({ user }) {
     )
 }
 
-export default NewPropertyForm
+export default EditPropertyForm

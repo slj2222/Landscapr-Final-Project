@@ -15,6 +15,11 @@ class ClientsController < ApplicationController
         render json: newClient
     end
 
+    def update
+        editClient = Client.find(params[:id])
+        render json: editClient.update(editClientParams)
+    end
+
     def destroy
         deleteClient = Client.find(params[:id])
         deleteClient.destroy
@@ -25,6 +30,10 @@ class ClientsController < ApplicationController
 
     def newClientParams
         params.permit( :first_name, :last_name, :phone_number, :email_address, :total_invoiced, :total_collected, :user_id)
+    end
+
+    def editClientParams
+        params.permit( :first_name, :last_name, :phone_number, :email_address)
     end
 
 end

@@ -4,7 +4,7 @@ import InvoiceSimpleCard from "./InvoiceSimpleCard";
 import { Link, useParams } from "react-router-dom";
 
 
-function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList }) {
+function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList, updateDeleteClientPropertiesList }) {
     console.log(showClient.properties)
     const {id} = useParams()    
 
@@ -22,7 +22,7 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
 
     const mapShowClientProperties = showClientProperties.map(property => {
         return (
-            <DetailClientPropertyCard key={property.id} property={property}/>
+            <DetailClientPropertyCard key={property.id} property={property} updateDeleteClientPropertiesList={updateDeleteClientPropertiesList}/>
         )
     })
 
@@ -69,9 +69,11 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
                 </div>
             </div>
             
-              {/* <Link to={`/clients/${id}`}> */}
-              <button className="button" >edit = not working</button>
-            {/* </Link> */}
+            
+            <Link to={`/clients/${id}/edit`}>
+                <button className="button" >edit client information</button>
+            </Link>
+            
             <Link to="/clients">
                 <button className="button" onClick={handleDelete}>remove client</button>
             </Link>

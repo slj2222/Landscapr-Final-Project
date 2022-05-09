@@ -76,3 +76,6 @@ header {
   padding: 25px;
 }
 
+.new-invoice-form {
+  display: flexbox;
+}
