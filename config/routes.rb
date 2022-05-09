@@ -8,11 +8,18 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
 
 
+  get "/total-invoiced", to: "invoices#total_invoiced"
+  get "/total-collected", to: "invoices#total_collected"
+  get "/total-outstanding", to: "invoices#total_outstanding"
 
 
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
+
+
+  
+  
 
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

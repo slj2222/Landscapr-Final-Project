@@ -18,9 +18,13 @@ function Navbar({ onLogout }) {
             <Link to="/invoices">
                 <div className="navbar-link">invoice list</div>
             </Link>
+            <Link to="/invoices/totals">
+                <div className="navbar-link">invoice totals</div>
+            </Link>
             <Link to="/">
                 <button onClick={handleLogout}>log out</button>
             </Link>
+            
             
         </div>
     )

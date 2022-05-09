@@ -14,6 +14,7 @@ import NewInvoiceForm from "./NewInvoiceForm";
 import NewPropertyForm from "./NewPropertyForm";
 import EditClientForm from "./EditClientForm";
 import EditPropertyForm from "./EditPropertyForm";
+import InvoiceTotalsCard from "./InvoiceTotalsCard";
 
 
 
@@ -109,6 +110,7 @@ function MainContainer({ user, onLogin, onLogout }) {
                         <Route path="/clients/:id/properties/new" element={<NewPropertyForm user={user} />} />
                         <Route path="/clients/:id/edit" element={<EditClientForm />} />
                         <Route path="/clients/:id/properties/:id/edit" element={<EditPropertyForm />} />
+                        <Route path="/invoices/totals" element={<InvoiceTotalsCard />} />
                     </>
                 ) : (
                     <>

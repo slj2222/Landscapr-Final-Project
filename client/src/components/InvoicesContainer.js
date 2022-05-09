@@ -4,7 +4,8 @@ import InvoiceSimpleCard from "./InvoiceSimpleCard";
 function InvoicesContainer() {
     // const [clientListInvoices, setClientListInvoices] = useState([])
     const [userClientList, setUserClientList] = useState([])
-
+    
+ 
 
     useEffect(() => {
         fetch("/clients")
@@ -16,6 +17,7 @@ function InvoicesContainer() {
             })
     }, [])
 
+    
 
 
     const mapUserClientList = userClientList.map(client => client.invoices.map(invoice => <InvoiceSimpleCard key={invoice.id} invoice={invoice} />))
@@ -30,7 +32,10 @@ function InvoicesContainer() {
 
     return (
         <div className="invoices-container">
-            {mapUserClientList}
+            
+            <div>
+                {mapUserClientList}
+            </div>
         </div>
     )
 }

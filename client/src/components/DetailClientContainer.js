@@ -43,7 +43,14 @@ function DetailClientContainer({ updateDeleteUserClientList }) {
     return (
         <div>
             <div className="detail-client-container">
-                <ClientInfoCard key={showClient.id} showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices} updateDeleteUserClientList={updateDeleteUserClientList} updateDeleteClientPropertiesList={updateDeleteClientPropertiesList}/>
+                <ClientInfoCard 
+                    key={showClient.id} 
+                    showClient={showClient} 
+                    showClientProperties={showClientProperties} 
+                    showClientInvoices={showClientInvoices} 
+                    updateDeleteUserClientList={updateDeleteUserClientList} 
+                    updateDeleteClientPropertiesList={updateDeleteClientPropertiesList}
+                    />
             </div>
         </div>
     )

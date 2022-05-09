@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function EditClientForm({ updateUserClientList}) {
+function EditClientForm({ updateUserClientList }) {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')

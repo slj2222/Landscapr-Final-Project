@@ -10,6 +10,21 @@ class InvoicesController < ApplicationController
         render json: updateInvoice.update(updateInvoiceParams)
     end
 
+    def total_invoiced
+        totalInvoiced = Invoice.total_invoiced
+        render json: totalInvoiced
+    end
+
+    def total_collected
+        totalCollected = Invoice.total_collected
+        render json: totalCollected
+    end
+
+    def total_outstanding
+        totalOutstanding = Invoice.total_outstanding
+        render json: totalOutstanding
+    end
+    
     private
 
     def newInvoiceParams
