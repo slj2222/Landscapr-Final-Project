@@ -23,6 +23,9 @@ function MainContainer({ user, onLogin, onLogout }) {
     // const [userInvoiceList, setUserInvoiceList] = useState([])
     // console.log(userInvoiceList)
     
+    // const [userInvoiceList, setUserInvoiceList] = useState([])    
+    // console.log(userInvoiceList)
+
     
 
     //GET request to get clients for the user.
@@ -32,9 +35,38 @@ function MainContainer({ user, onLogin, onLogout }) {
             .then(data => {
                 console.log(data)
                 setUserClientList(data)
+                
             })
     }, [])
+// ???????????????????????
 
+
+// const mapUserClientList = userClientList.map(client => client.invoices.map(invoice => <InvoicesContainer invoice={invoice} />))
+
+
+
+
+
+// function handleUpdateListInvoices(updatedInvoice) {
+//     const updatedInvoices = userClientList.map(client => client.invoices.map(invoice => {
+//         if (invoice.id === updatedInvoice.id) {
+//             return updatedInvoice
+//         } else {
+//             return invoice
+//         }
+//     }))
+//     // setUserInvoiceList(updatedInvoices)
+// }
+
+
+
+
+
+
+
+
+
+// ???????????????????????
 
     
     
@@ -53,6 +85,8 @@ function MainContainer({ user, onLogin, onLogout }) {
     function updateDeleteUserClientList(deletedClient) {
         setUserClientList(userClientList.filter(client => client !== deletedClient))
     }
+
+    
     
     return (
 
@@ -67,9 +101,9 @@ function MainContainer({ user, onLogin, onLogout }) {
                         <Route path="/clients" element={<ClientListContainer userClientList={userClientList} />} />
                         <Route path="/login" element={<Login onLogin={onLogin}/>} />
                         
-                        <Route path="/invoices" element={<InvoicesContainer userClientList={userClientList}/>} />
+                        <Route path="/invoices" element={<InvoicesContainer  />} />
                         {/* <Route path="/invoices" element={mapUserClientList} /> */}
-                        <Route path="/clients/:id" element={<DetailClientContainer updateDeleteUserClientList={updateDeleteUserClientList}/>} />
+                        <Route path="/clients/:id" element={<DetailClientContainer updateDeleteUserClientList={updateDeleteUserClientList} />} />
                         <Route path="/clients/new" element={<NewClientForm updateUserClientList={updateUserClientList} user={user} />} />
                         <Route path="/clients/:id/invoices/new" element={<NewInvoiceForm />} />
                         <Route path="/clients/:id/properties/new" element={<NewPropertyForm user={user} />} />

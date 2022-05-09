@@ -9,6 +9,17 @@ function DetailClientContainer({ updateDeleteUserClientList }) {
     const [showClientProperties, setShowClientProperties] = useState([])
     const [showClientInvoices, setShowClientInvoices] = useState([])
     const { id } = useParams()
+
+    // function handleUpdateInvoices(updatedInvoice) {
+    //     const updatedInvoices = showClientInvoices.map(invoice => {
+    //         if (invoice.id === updatedInvoice.id) {
+    //             return updatedInvoice;
+    //         } else {
+    //             return invoice
+    //         }
+    //     }) 
+    //     setShowClientInvoices(updatedInvoices)
+    // }    
     
 
 
