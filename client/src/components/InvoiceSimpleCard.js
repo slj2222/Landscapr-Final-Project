@@ -20,10 +20,10 @@ function InvoiceSimpleCard({ invoice }) {
 
 
     return (
-        <div className="invoice-simple-card">
-            <div>{invoice.invoice_date}</div>
-            <div>property id: {invoice.property_id} </div>
-            <div>invoice amount: ${invoice.invoice_amount}</div>
+        <div className="container invoiceList">
+            <span>{invoice.invoice_date}</span>
+            <span>property id: {invoice.property_id}</span>
+            <span>invoice amount: ${invoice.invoice_amount}</span>
             
             {isPaid ? <div> paid </div> :
                 <div>

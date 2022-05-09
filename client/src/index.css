@@ -12,25 +12,46 @@ code {
     monospace;
 }
 
-header {
+.header {
   display: flexbox;
+  
   width: 100%;
-  background-color: #424B54;
-  height: 100px;
+  background-color: rgb(82, 64, 64);
+  height: 100%;
+}
+
+.container {
+  display: flexbox;
+  padding: 2rem;
 }
 
 .navbar {
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  /* position: fixed;
   width: 100%;
-  background-color: #DADDD8;
-  height: 65px;
+  background-color: black;
+  padding-bottom: 2rem;
+  padding-top: 2rem; */
 }
 
 .navbar-link {
-  border: 1px solid black;
-  max-width: 100px;
+  display: flex;
+  margin-left: .8rem;
+  gap: .5rem;
+  flex-direction: row;
 }
 
+#logout-button {
+  margin-right: .8rem;
+}
+
+.invoiceList{
+  /* height: 50px;
+  width: 50px; */
+}
 
 
 .client-list-card {

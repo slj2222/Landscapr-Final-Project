@@ -2,7 +2,11 @@ class InvoicesController < ApplicationController
 
     def create 
         newInvoice = Invoice.create(newInvoiceParams)
-        render json: newInvoice
+        if newInvoice.id
+            render json: newInvoice, status: 201
+        else 
+            render json: { errors: ["please choose a property"] }, status: 422
+        end
     end
 
     def update

@@ -7,6 +7,7 @@ function NewInvoiceForm() {
     const [propertyId, setPropertyId] = useState('')
     const [showClientProperties, setShowClientProperties] = useState([])
     const { id } = useParams()
+    const [errors, setErrors] = useState('')
     console.log(showClientProperties)
 
     useEffect(() => {
@@ -37,36 +38,41 @@ function NewInvoiceForm() {
         })
             .then(res => res.json())
             .then(data => {
+                if (data.errors) {
+                    setErrors(data.errors)
+                }   else {
                 // updateNewInvoiceList(data)
                 console.log(data)
+                }
                 // history.push("/clients/:id")
             })
     }
     const mapShowClientProperties = showClientProperties.map(property => {
         console.log(property.id)
         return (
-            <option value={property.id}>{property.street_address}, {property.city}, {property.state}, {property.zip_code}, ${property.quoted_amount}</option>
+            <option required value={property.id}>{property.street_address}, {property.city}, {property.state}, {property.zip_code}, quoted amount: ${property.quoted_amount}</option>
         )
     })
 
     return (
         <div className={"new-invoice-container"}>
             NEW INVOICE FORM
+            {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
             <form className="new-invoice-form" onSubmit={handleNewInvoice}>
                 <div>
                     <div>
                         property id: <select name="choose property" value={propertyId} onChange={(e) => setPropertyId(parseInt(e.target.value))}>
                             Property id:
-                            <option value="nil">choose a property</option>
+                            <option revalue="nil">choose a property</option>
                             {mapShowClientProperties}
                         </select>
                     </div>
                 </div>
                 <div>
-                    invoice date: <input type="text" placeholder="invoice_date" onChange={(e) => setInvoiceDate(e.target.value)} />
+                    invoice date: <input required type="text" placeholder="MM/DD/YYYY" onChange={(e) => setInvoiceDate(e.target.value)} />
                 </div>
                 <div>
-                    invoice amount: $ <input type="text" placeholder="invoice_amount" onChange={(e) => setInvoiceAmount(e.target.value)} />
+                    invoice amount: $ <input required type="text" placeholder="00.00" onChange={(e) => setInvoiceAmount(e.target.value)} />
                 </div>
 
                 <input type="submit" value="submit" />

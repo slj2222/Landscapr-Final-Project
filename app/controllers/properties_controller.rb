@@ -2,7 +2,11 @@ class PropertiesController < ApplicationController
 
     def create
         newProperty = Property.create(newPropertyParams)
-        render json: newProperty
+        if newProperty.id
+            render json: newProperty
+        else
+            render json: {errors: ["Validation errors"] }, status: 422
+        end
     end
 
     def update
@@ -12,7 +16,11 @@ class PropertiesController < ApplicationController
 
     def destroy
         deletProperty = Property.find(params[:id])
-        deletProperty.destroy
+        if deleteProperty
+            deletProperty.destroy
+        else 
+            render json: { errors: "Property not found"}, status: 404
+        end
     end
 
     private

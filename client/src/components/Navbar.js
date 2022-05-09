@@ -10,22 +10,26 @@ function Navbar({ onLogout }) {
     }
 
     return (
-        <div className="navbar">
-            NAVBAR
-            <Link to="/clients">
-                <div className="navbar-link">client list</div>
-            </Link>
-            <Link to="/invoices">
-                <div className="navbar-link">invoice list</div>
-            </Link>
-            <Link to="/invoices/totals">
-                <div className="navbar-link">invoice totals</div>
-            </Link>
-            <Link to="/">
-                <button onClick={handleLogout}>log out</button>
-            </Link>
-            
-            
+        <div classsName="container">
+            <div className="navbar">
+                <div className="navbar-link">
+                    <Link to="/clients">
+                        <button>client list</button>
+                    </Link>
+                    <Link to="/invoices">
+                        <button>invoice list</button>
+                    </Link>
+                    <Link to="/invoices/totals">
+                        <button>invoice totals</button>
+                    </Link>
+                </div>
+                <div id="logout-button">
+                    <Link to="/">
+                        <button onClick={handleLogout}>log out</button>
+                    </Link>
+                </div>
+                
+            </div>
         </div>
     )
 }

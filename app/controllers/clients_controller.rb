@@ -7,7 +7,11 @@ class ClientsController < ApplicationController
 
     def show
         showClient = Client.find(params[:id])
-        render json: showClient
+        if showClient
+            render json: showClient
+        else
+            render json: {error: "Client not found" }, status: 404
+        end
     end
 
     def create
@@ -22,7 +26,11 @@ class ClientsController < ApplicationController
 
     def destroy
         deleteClient = Client.find(params[:id])
-        deleteClient.destroy
+        if deleteClient
+            deleteClient.destroy
+        else
+            render json: { error: "Client not found"}, status: 404
+        end
     end
 
 

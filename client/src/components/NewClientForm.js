@@ -7,7 +7,7 @@ function NewClientForm({ updateUserClientList, user }) {
     const [lastName, setLastName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
-
+    const [errors, setErrors] = useState('')
     
 
     function handleSubmit(e) {
@@ -27,7 +27,11 @@ function NewClientForm({ updateUserClientList, user }) {
         })
         .then(res => res.json())
         .then(newClient =>{
-            updateUserClientList(newClient)
+            if (newClient.errors) {
+                setErrors(newClient.errors)
+            } else {
+                updateUserClientList(newClient)
+            }
         })
 
     }
@@ -38,13 +42,13 @@ function NewClientForm({ updateUserClientList, user }) {
         <div className="new-client-form">
             <div>
                 <h2>add new client</h2>
-
+                {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
                 <form className="add-client-form" onSubmit={handleSubmit}>
                     <h3>contact information</h3>
-                    <input type="text" placeholder="first name" onChange={(e) => setFirstName(e.target.value)} />
-                    <input type="text" placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
-                    <input type="text" placeholder="phone number" onChange={(e) => setPhoneNumber(e.target.value)} />
-                    <input type="text" placeholder="email address" onChange={(e) => setEmailAddress(e.target.value)} />
+                    <input required type="text" placeholder="first name" onChange={(e) => setFirstName(e.target.value)} />
+                    <input required type="text" placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
+                    <input required type="text" placeholder="phone number" onChange={(e) => setPhoneNumber(e.target.value)} />
+                    <input required type="text" placeholder="email address" onChange={(e) => setEmailAddress(e.target.value)} />
                     {/* for some reason the LINK is messing up the POST */}
                     {/* <Link to={"/clients"}> */}
                         <input type="submit" value="submit" />
