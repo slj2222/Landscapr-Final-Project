@@ -38,7 +38,7 @@ function MainContainer({ user, onLogin, onLogout }) {
                 setUserClientList(data)
                 
             })
-    }, [])
+    }, [user])
 // ???????????????????????
 
 
@@ -97,7 +97,7 @@ function MainContainer({ user, onLogin, onLogout }) {
             <Routes>
                 {user ? (
                     <>
-                        <Route path="/" element={<LandingPage user={user} onLogin={onLogin} />} />
+                        <Route path="/" element={<LandingPage user={user} onLogin={onLogin} userClientList={userClientList} />} />
                         {/* <Route path="/" element={<Navbar onLogout={onLogout}/>} /> */}
                         <Route path="/clients" element={<ClientListContainer userClientList={userClientList} />} />
                         <Route path="/login" element={<Login onLogin={onLogin}/>} />
@@ -114,7 +114,7 @@ function MainContainer({ user, onLogin, onLogout }) {
                     </>
                 ) : (
                     <>
-                        <Route path="/" element={<LandingPage user={user} onLogin={onLogin} />} />
+                        <Route path="/" element={<LandingPage user={user} onLogin={onLogin} userClientList={userClientList} />} />
                         {/* <Route path="login" element={<Login onLogin={onLogin}/>} /> */}
                         <Route path="/signup" element={<Signup onLogin={onLogin}/>} />
                     </>
