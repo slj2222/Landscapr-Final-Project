@@ -26,7 +26,7 @@ function ClientListContainer() {
     return (
         <div className="client-list-container">
             <Link to="/clients/new">
-                <div> add new client </div>
+                <button> add new client </button>
             </Link>
             {mapUserClientList}
         </div>

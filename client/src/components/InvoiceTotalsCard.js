@@ -9,7 +9,7 @@ function InvoiceTotalsCard() {
         fetch("/total-invoiced")
             .then(res => res.json())
             .then(data => {
-                // console.ßlog(data)
+                // console.log(data)
                 setTotalInvoiced(data)
             })
     }, [])

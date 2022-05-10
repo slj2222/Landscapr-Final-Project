@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
 
 
-  get "/total-invoiced", to: "invoices#total_invoiced"
-  get "/total-collected", to: "invoices#total_collected"
-  get "/total-outstanding", to: "invoices#total_outstanding"
+  get "/total-invoiced", to: "users#total_invoiced"
+  get "/total-collected", to: "users#total_collected"
+  get "/total-outstanding", to: "users#total_outstanding"
 
 
   post "/login", to: "sessions#create"

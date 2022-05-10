@@ -16,6 +16,24 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def total_invoiced
+        user = User.find_by(id: session[:user_id])
+        totalInvoiced = user.total_invoiced
+        render json: totalInvoiced
+    end
+
+    def total_collected
+        user = User.find_by(id: session[:user_id])
+        totalCollected = user.total_collected
+        render json: totalCollected
+    end
+
+    def total_outstanding
+        user = User.find_by(id: session[:user_id])
+        totalOutstanding = user.total_outstanding
+        render json: totalOutstanding
+    end
+
     private
 
     def user_params
