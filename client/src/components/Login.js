@@ -24,6 +24,7 @@ function Login({ onLogin }) {
         })
     }
 
+
     return (
         <div>
             LOGIN PAGE
@@ -31,11 +32,11 @@ function Login({ onLogin }) {
                 <label htmlFor="username">
                     username:
                 </label>
-                <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)}></input>
+                <input type="text" required name="username" value={username} onChange={e => setUsername(e.target.value)}></input>
                 <label htmlFor="password">
                     password:
                 </label>
-                <input type="text" name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                <input type="text" required name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
                 
                     <input type="submit" value="log in"></input>
                 
