@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditClientForm({ updateUserClientList }) {
     const [firstName, setFirstName] = useState('')
@@ -7,6 +7,8 @@ function EditClientForm({ updateUserClientList }) {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
     const { id } = useParams()
+    const [errors, setErrors] = useState('')
+    const navigate = useNavigate()
 
     
 
@@ -23,9 +25,15 @@ function EditClientForm({ updateUserClientList }) {
             })
         })
         .then(res => res.json())
-        .then(editedClient =>{
-            console.log(editedClient)
+        .then(editedClient => {
+            if (editedClient.errors) {
+                setErrors(editedClient.errors)
+            } else {
+                console.log(editedClient)
             // updateUserClientList(newClient)
+                navigate(`/clients/${id}`)
+            }
+            
         })
 
     }
@@ -36,13 +44,13 @@ function EditClientForm({ updateUserClientList }) {
         <div className="new-client-form">
             <div>
                 <h2> edit client</h2>
-
+                {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
                 <form className="add-client-form" onSubmit={handleSubmit}>
                     <h3>contact information</h3>
-                    <input type="text" placeholder="first name" onChange={(e) => setFirstName(e.target.value)} />
-                    <input type="text" placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
-                    <input type="text" placeholder="phone number" onChange={(e) => setPhoneNumber(e.target.value)} />
-                    <input type="text" placeholder="email address" onChange={(e) => setEmailAddress(e.target.value)} />
+                    <input required type="text" placeholder="first name" onChange={(e) => setFirstName(e.target.value)} />
+                    <input required type="text" placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
+                    <input required type="text" placeholder="phone number" onChange={(e) => setPhoneNumber(e.target.value)} />
+                    <input required type="text" placeholder="email address" onChange={(e) => setEmailAddress(e.target.value)} />
 
 
                     <input type="submit" value="submit" />

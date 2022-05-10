@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function NewPropertyForm({ user }) {
     const [streetAddress, setStreetAddress] = useState('')
@@ -8,6 +8,8 @@ function NewPropertyForm({ user }) {
     const [zipCode, setZipCode] = useState('')
     const [quotedAmount, setQuotedAmount] = useState('')
     const { id } = useParams()
+    const navigate = useNavigate()
+    const [errors, setErrors] = useState('')
 
 
     function handleSubmit(e) {
@@ -26,9 +28,14 @@ function NewPropertyForm({ user }) {
             })
         })
         .then(res => res.json())
-        .then(data => 
-            console.log(data))
-            
+        .then(data => {
+            if (data.errors) {
+                setErrors(data.errors)
+            } else {
+                // console.log(data)
+                navigate(`/clients/${id}`)
+            }
+        })
     }
 
 
@@ -36,14 +43,14 @@ function NewPropertyForm({ user }) {
         <div>
             <div>
                 <h2>add client's property</h2>
-
+                    {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
                 <form className="add-property-form" onSubmit={handleSubmit}>
 
-                    <input type="text" value={streetAddress} placeholder="street address" onChange={(e) => setStreetAddress(e.target.value)} />
-                    <input type="text" value={city} placeholder="city" onChange={(e) => setCity(e.target.value)} />
-                    <input type="text" value={state} placeholder="state" onChange={(e) => setState(e.target.value)} />
-                    <input type="text" value={zipCode} placeholder="zip code" onChange={(e) => setZipCode(e.target.value)} />
-                    <input type="text" value ={quotedAmount} placeholder="quoted amount" onChange={(e) => setQuotedAmount(e.target.value)} />
+                    <input type="text" required value={streetAddress} placeholder="street address" onChange={(e) => setStreetAddress(e.target.value)} />
+                    <input type="text" required value={city} placeholder="city" onChange={(e) => setCity(e.target.value)} />
+                    <input type="text" required value={state} placeholder="state" onChange={(e) => setState(e.target.value)} />
+                    <input type="text" required value={zipCode} placeholder="zip code" onChange={(e) => setZipCode(e.target.value)} />
+                    <input type="text" required value ={quotedAmount} placeholder="quoted amount" onChange={(e) => setQuotedAmount(e.target.value)} />
 
                     {/* for some reason the LINK is messing up the POST */}
                     {/* <Link to={"/client-list"}> */}

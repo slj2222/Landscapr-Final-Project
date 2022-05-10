@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
         if newProperty.id
             render json: newProperty
         else
-            render json: {errors: ["Validation errors"] }, status: 422
+            render json: {errors: ["Please double check the form"] }, status: 422
         end
     end
 
@@ -16,11 +16,8 @@ class PropertiesController < ApplicationController
 
     def destroy
         deletProperty = Property.find(params[:id])
-        if deleteProperty
-            deletProperty.destroy
-        else 
-            render json: { errors: "Property not found"}, status: 404
-        end
+        deletProperty.destroy
+       
     end
 
     private

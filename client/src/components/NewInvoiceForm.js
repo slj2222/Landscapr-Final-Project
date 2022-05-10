@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function NewInvoiceForm() {
     const [invoiceDate, setInvoiceDate] = useState('')
@@ -8,7 +8,8 @@ function NewInvoiceForm() {
     const [showClientProperties, setShowClientProperties] = useState([])
     const { id } = useParams()
     const [errors, setErrors] = useState('')
-    console.log(showClientProperties)
+    const navigate = useNavigate()
+    // console.log(showClientProperties)
 
     useEffect(() => {
         fetch(`/clients/${id}`)
@@ -23,6 +24,7 @@ function NewInvoiceForm() {
 
     function handleNewInvoice(e) {
         e.preventDefault()
+        
 
         fetch("/invoices", {
             method: 'POST',
@@ -42,7 +44,8 @@ function NewInvoiceForm() {
                     setErrors(data.errors)
                 }   else {
                 // updateNewInvoiceList(data)
-                console.log(data)
+                // console.log(data)
+                navigate(`/clients/${id}`)
                 }
                 // history.push("/clients/:id")
             })

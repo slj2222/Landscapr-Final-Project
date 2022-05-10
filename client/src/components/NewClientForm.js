@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function NewClientForm({ updateUserClientList, user }) {
@@ -8,7 +8,7 @@ function NewClientForm({ updateUserClientList, user }) {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
     const [errors, setErrors] = useState('')
-    
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -31,9 +31,9 @@ function NewClientForm({ updateUserClientList, user }) {
                 setErrors(newClient.errors)
             } else {
                 updateUserClientList(newClient)
+                navigate("/clients")
             }
         })
-
     }
 
 
