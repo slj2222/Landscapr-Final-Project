@@ -17,25 +17,31 @@ function LandingPage( { user, onLogin, userClientList }) {
             {user ? (
                 (userClientList.length) === 0 ? (
                     <>
-                    Welcome, {user.username}! 
-                    <p> click the button to add your first client </p>
+                    <div className="landing-page">
+                        <div className="landing-page-welcome-message">Welcome, {user.username}!</div>
+                        <div className="landing-page-message"> click the button to add your first client </div>
+                    </div>
                     <Link to="/clients/new">
                         <button> add a client </button>
                     </Link>
                     </>
                 ) : (
                     <>
-                    Welcome, {user.username}! 
-                    <p>check out your client list above to get started</p>
+                    <div className="landing-page">
+                        <div className="landing-page-welcome-message">Welcome, {user.username}!</div>
+                        <div className="landing-page-message">check out your client list above to get started</div>
+                    </div>
                     </>
                 )
                 
             ) : (
                 <>
                 <Login onLogin={onLogin}/>
-                <Link to="/signup">
-                    <div>sign up here</div>
-                </Link>
+                <div className="signup-link">
+                    <Link to="/signup">
+                        <h5>Need an account? Sign up here!</h5>
+                    </Link>
+                </div>
             </>
             )}
         </div>

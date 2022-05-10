@@ -16,7 +16,7 @@ function ClientListContainer() {
             })
     }, [])
 
-    console.log(userClientList)
+    // console.log(userClientList)
     const mapUserClientList = userClientList.map(client => {
         return (
             <ClientListCard key={client.id} client={client} />
@@ -25,10 +25,14 @@ function ClientListContainer() {
 
     return (
         <div className="client-list-container">
-            <Link to="/clients/new">
-                <button> add new client </button>
-            </Link>
-            {mapUserClientList}
+            <div className="add-button">
+                <Link to="/clients/new">
+                    <button> add new client </button>
+                </Link>
+            </div>
+            <div>
+                {mapUserClientList}
+            </div>
         </div>
     )
 }

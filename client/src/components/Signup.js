@@ -35,17 +35,25 @@ function Signup({ onLogin }) {
 
 
     return (
-        <div>
-            SIGNUP PAGE
+        <div className="form">
+            <h3>sign up here</h3>
             {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
             <form className="sign-up-form" onSubmit={(e) => handleCreateUser(e)}>
-                <label htmlFor="username">company name:</label>
-                <input type="text" required name="username" value={username} placeholder="" onChange={(e) => setUsername(e.target.value)} />
-                <label htmlFor="password">password:</label>
-                <input type="text" required name="password" value={password} placeholder="" onChange={(e) => setPassword(e.target.value)} />
-                <label htmlFor="confirm-password">confirm password:</label>
-                <input type="text" required name="confirm password" value={confirmPassword} placeholder="" onChange={(e) => setConfirmPassword(e.target.value)} />
-                <input type="submit" name="sign up"></input>
+                <div>
+                    <label htmlFor="username">company name:</label>
+                    <input type="text" required name="username" value={username} placeholder="" onChange={(e) => setUsername(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="password">password:</label>
+                    <input type="text" required name="password" value={password} placeholder="" onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="confirm-password">confirm password:</label>
+                    <input type="text" required name="confirm password" value={confirmPassword} placeholder="" onChange={(e) => setConfirmPassword(e.target.value)} />
+                </div>
+                <div className="submit-button">
+                    <input type="submit" name="sign up"></input>
+                </div>
             </form>
         </div>
     )

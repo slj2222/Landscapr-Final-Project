@@ -17,24 +17,32 @@ function DetailClientPropertyCard({ property, updateDeleteClientPropertiesList }
         }
 
     return (
-        <div>
-            <p>Property id: {property.id}</p>
-            <h5>
-            {property.street_address}
-            </h5>
-            <h5>
-            {property.city}
-            </h5>
-            <h5>
-            {property.state}
-            </h5>
-            <h5>
-            {property.zip_code}
-            </h5>
-            <Link to={`/clients/${id}/properties/${property.id}/edit`}>
-                <button>edit property </button>
-            </Link>
-            <button onClick={handleDelete}>remove property</button>
+        <div className="detail-client-property">
+            <div>
+                {property.street_address}
+            </div>
+            <div>
+                {property.city}
+            </div>
+            <div>
+                {property.state}
+            </div>
+            <div>
+                {property.zip_code}
+            </div>
+            
+            <h4>
+                quoted amount: ${property.quoted_amount}
+                </h4>
+            <h5>Property id: {property.id}</h5>
+            <div className="add-button">
+                <Link to={`/clients/${id}/properties/${property.id}/edit`}>
+                    <button>edit property </button>
+                </Link>
+            </div>
+            <div className="add-button">
+                <button onClick={handleDelete}>remove property</button>
+            </div>
 
             
         </div>

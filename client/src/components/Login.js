@@ -26,20 +26,23 @@ function Login({ onLogin }) {
 
 
     return (
-        <div>
-            LOGIN PAGE
+        <div className="form">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">
-                    username:
-                </label>
-                <input type="text" required name="username" value={username} onChange={e => setUsername(e.target.value)}></input>
-                <label htmlFor="password">
-                    password:
-                </label>
-                <input type="text" required name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
-                
+                <div className="input-field">
+                    <label className="login-lable" htmlFor="username">
+                        username:
+                    </label>
+                    <input type="text" required name="username" value={username} onChange={e => setUsername(e.target.value)}></input>
+                </div>
+                <div className="input-field">
+                    <label className="login-lable" htmlFor="password">
+                        password:
+                    </label>
+                    <input type="text" required name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                </div>
+                <div className="login-button">
                     <input type="submit" value="log in"></input>
-                
+                </div>
             </form>
         </div>
     )

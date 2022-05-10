@@ -33,53 +33,56 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
     })
 
     return (
-        <div className="client-info-card">
-            <div className="client-info-card-info">
-                <div>
+        <div className="client-info-container">
+            <div className="client-info-card">
+                <h2>
                     {showClient.first_name} {showClient.last_name}
-                </div>
+                </h2>
                 <div>
                     client id: {showClient.id}
                 </div>
                 <div>
-                    {showClient.phone_number} {showClient.email_address}
+                    phone number: {showClient.phone_number} 
+                </div>
+                <div>
+                    email address: {showClient.email_address}
                 </div>
             </div>
 
-
-
-
-            {/* <Link to={`/clients/${id}`}>
-                <button className="button" >edit = not working</button>
-            </Link> */}
-            <Link to={`/clients/${id}/properties/new`}>
-                <button> add a property </button>
-            </Link>
-            <div className="client-info-card-properties">
-
-                <p>needs work ~ client property ~ needs work</p>
-                {mapShowClientProperties}
+            <div className="add-button">
+                <Link to={`/clients/${id}/properties/new`}>
+                    <button> add a property </button>
+                </Link>
             </div>
-            <div className="client-infor-card-invoices">
+            <div className="client-info-card">
+                <h3> list of properties </h3>
+                <div className="client-info-card-columns">
+                    {mapShowClientProperties}
+                    </div>
+            </div>
+            <div>
                 {showClientProperties.length === 0 ? <></>
                     :
-                    <Link to={`/clients/${id}/invoices/new`}>
-                        <button> add an invoice</button>
-                    </Link>
+                    <div className="add-button">
+                        <Link to={`/clients/${id}/invoices/new`}>
+                            <button> add an invoice</button>
+                        </Link>
+                    </div>
                 }
-                <div>
+                <div className="client-info-card">
+                    <h3> list of invoices </h3>
                     {mapShowClientInvoices}
                 </div>
             </div>
 
-
-            <Link to={`/clients/${id}/edit`}>
-                <button className="button" >edit client information</button>
-            </Link>
-
-            <Link to="/clients">
-                <button className="button" onClick={handleDelete}>remove client</button>
-            </Link>
+            <div className="add-button">
+                <Link to={`/clients/${id}/edit`}>
+                    <button className="button" >edit client information</button>
+                </Link>
+                <Link to="/clients">
+                    <button className="button" onClick={handleDelete}>remove client</button>
+                </Link>
+            </div>
 
         </div>
     )

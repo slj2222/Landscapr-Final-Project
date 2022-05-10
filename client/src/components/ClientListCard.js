@@ -19,13 +19,17 @@ function ClientListCard({ client }) {
         <div className="client-list-card">
             <div className="client-name">
                 <Link to={`/clients/${client.id}`}>
-
-                    <h5>{client.first_name} {client.last_name}</h5>
-                    <h3>client id: {client.id}</h3>
+                    <div className="client-name-1">
+                        <h4>{client.first_name} {client.last_name}</h4>
+                    </div>
+                    <div className="client-id">
+                        <h5>client id: {client.id}</h5>
+                    </div>
                 </Link>
-
             </div>
-            {mapClientProperties}
+            <div>
+                {mapClientProperties}
+            </div>
         </div>
     )
 }
