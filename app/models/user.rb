@@ -3,4 +3,20 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :username, uniqueness: true
+    validates :username, presence: true
+    validates :password, presence: true
+
+    
+
+    def total_invoiced
+        self.clients.map{|client| client.invoices.sum{|i| i.invoice_amount}}.sum{|t| t}
+    end
+
+    def total_collected
+        self.clients.map{|c| c.invoices.where(collected: true).sum{|i| i.invoice_amount}}.sum{|t| t}
+    end
+
+    def total_outstanding
+        self.clients.map{|c| c.invoices.where(collected: false).sum{|i| i.invoice_amount}}.sum{|t| t}
+    end
 end

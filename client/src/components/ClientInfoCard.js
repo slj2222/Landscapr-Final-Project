@@ -1,73 +1,89 @@
 import React from "react";
 import DetailClientPropertyCard from "./DetailClientPropertyCard";
 import InvoiceSimpleCard from "./InvoiceSimpleCard";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
-function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList }) {
+function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList, updateDeleteClientPropertiesList }) {
     console.log(showClient.properties)
-    
+    const { id } = useParams()
 
     function handleDelete() {
         fetch(`/clients/${showClient.id}`, {
-                method: 'DELETE',
-                headers: { 'Content-Type': 'application/json'}
-            })
-            // .catch(error => console.log(error))
-            // console.log(client)
-            updateDeleteUserClientList(showClient)
-        }
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        // .catch(error => console.log(error))
+        // console.log(client)
+        updateDeleteUserClientList(showClient)
+    }
 
 
 
     const mapShowClientProperties = showClientProperties.map(property => {
         return (
-            <DetailClientPropertyCard key={property.id} property={property}/>
+            <DetailClientPropertyCard key={property.id} property={property} updateDeleteClientPropertiesList={updateDeleteClientPropertiesList} />
         )
     })
 
     const mapShowClientInvoices = showClientInvoices.map(invoice => {
-        return(
+        return (
             <InvoiceSimpleCard invoice={invoice} />
         )
     })
 
-       return (
-        <div className="client-info-card">
-            <div className="client-info-card-info">
-                <div>
-                {showClient.first_name} {showClient.last_name}
-                </div>
+    return (
+        <div className="client-info-container">
+            <div className="client-info-card">
+                <h2>
+                    {showClient.first_name} {showClient.last_name}
+                </h2>
                 <div>
                     client id: {showClient.id}
                 </div>
                 <div>
-                {showClient.phone_number} {showClient.email_address}
+                    phone number: {showClient.phone_number} 
+                </div>
+                <div>
+                    email address: {showClient.email_address}
                 </div>
             </div>
-         
-                
-         
-            
-            {/* <Link to={`/clients/${id}`}>
-                <button className="button" >edit = not working</button>
-            </Link> */}
-             <button> add a property </button>
-            <div className="client-info-card-properties">
-               
-                <p>needs work ~ client property ~ needs work</p>
-                {mapShowClientProperties}
+
+            <div className="add-button">
+                <Link to={`/clients/${id}/properties/new`}>
+                    <button> add a property </button>
+                </Link>
             </div>
-            <div className="client-infor-card-invoices">
-                <button> add an invoice</button>
-                <div>
+            <div className="client-info-card">
+                <h3> list of properties </h3>
+                <div className="client-info-card-columns">
+                    {mapShowClientProperties}
+                    </div>
+            </div>
+            <div>
+                {showClientProperties.length === 0 ? <></>
+                    :
+                    <div className="add-button">
+                        <Link to={`/clients/${id}/invoices/new`}>
+                            <button> add an invoice</button>
+                        </Link>
+                    </div>
+                }
+                <div className="client-info-card">
+                    <h3> list of invoices </h3>
                     {mapShowClientInvoices}
                 </div>
             </div>
-            
-            <Link to="/clients">
-                <button className="button" onClick={handleDelete}>remove client</button>
-            </Link>
+
+            <div className="add-button">
+                <Link to={`/clients/${id}/edit`}>
+                    <button className="button" >edit client information</button>
+                </Link>
+                <Link to="/clients">
+                    <button className="button" onClick={handleDelete}>remove client</button>
+                </Link>
+            </div>
+
         </div>
     )
 }

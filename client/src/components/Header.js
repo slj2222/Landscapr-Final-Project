@@ -1,9 +1,10 @@
+import Logo from "../mower.svg";
 import React from "react";
 
 function Header() {
     return (
         <div className="header">
-            HEADER
+            <img id="logo" src={Logo} alt="mower logo" />
         </div>
     )
 }

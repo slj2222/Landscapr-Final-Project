@@ -32,7 +32,7 @@ function App() {
 
   return (
 
-    <MainContainer user={user} onLogin={onLogin} onLogout={onLogout} />
+    <MainContainer user={user} onLogin={onLogin} onLogout={onLogout}/>
 
   )
 }

@@ -12,26 +12,131 @@ code {
     monospace;
 }
 
-header {
-  display: flexbox;
+
+
+#logo {
+  display: center;
+  justify-content: space-around;
+  max-width: 150px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  
+}
+
+.header {
+  display: flex;
+  
   width: 100%;
-  background-color: #424B54;
-  height: 100px;
+  background-color: #1e5221aa;
+  max-height: 100%;
+}
+
+.container {
+  display: flex;
+  padding: 2rem;
+}
+
+.form {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 60px;
+  margin-left: 550px;
+  margin-right: 550px;
+  border-radius: 15px;
+}
+
+.landing-page {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.landing-page-welcome-message {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.landing-page-message {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.login-lable {
+  margin-right: 5px;
+}
+
+.signup-link {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
 .navbar {
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  /* position: fixed; */
   width: 100%;
-  background-color: #DADDD8;
-  height: 65px;
+  background-color: rgb(34, 43, 35);
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .navbar-link {
-  border: 1px solid black;
-  max-width: 100px;
+  display: flex;
+  margin-left: .8rem;
+  gap: .5rem;
+  flex-direction: row;
 }
 
+#logout-button {
+  margin-right: .8rem;
+}
 
+.add-button {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.client-name {
+  display: flex;
+  
+}
+.invoiceList{
+  /* height: 50px;
+  width: 50px; */
+}
+
+.client-list-container {
+  margin-right: 165px;
+  margin-left: 165px;
+}
 
 .client-list-card {
   border: 5px solid #424B54;
@@ -41,7 +146,7 @@ header {
 }
 
 .client-list-property-card {
-  border: 5px solid #424B54;
+  border: 5px solid #1e5221aa;
   margin: 40px;
   padding: 25px;
   background-color: #DADDD8;
@@ -49,18 +154,27 @@ header {
 
 
 .client-info-card {
-  border: 3px solid #424B54;
+  /* border: 3px solid #424B54; */
   background-color: #DADDD8;
   margin: 40px;
   padding: 25px;
 }
 
-.client-info-card-info {
-  border: 3px solid #424B54;
+
+.client-info-card-columns {
+  /* border: 3px solid #424B54; */
   background-color: #DADDD8;
-  margin: 40px;
-  padding: 25px;
+  
+  padding-bottom: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
+
+
 
 .invoice-simple-card {
   border: 3px solid #424B54;
@@ -69,10 +183,18 @@ header {
   padding: 25px;
 }
 
-.client-info-card-properties {
-  border: 3px solid #424B54;
-  background-color: #DADDD8;
-  margin: 40px;
-  padding: 25px;
+
+
+.new-invoice-form {
+  display: flexbox;
 }
 
+.client-info-container {
+  border: 3px solid #424B54;
+  background-color: #33533475;
+  
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 75px;
+  padding-top: 30px;
+}

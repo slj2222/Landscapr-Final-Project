@@ -10,6 +10,18 @@ function DetailClientContainer({ updateDeleteUserClientList }) {
     const [showClientInvoices, setShowClientInvoices] = useState([])
     const { id } = useParams()
 
+    // function handleUpdateInvoices(updatedInvoice) {
+    //     const updatedInvoices = showClientInvoices.map(invoice => {
+    //         if (invoice.id === updatedInvoice.id) {
+    //             return updatedInvoice;
+    //         } else {
+    //             return invoice
+    //         }
+    //     }) 
+    //     setShowClientInvoices(updatedInvoices)
+    // }    
+    
+
 
     useEffect(() => {
         fetch(`/clients/${id}`)
@@ -22,29 +34,24 @@ function DetailClientContainer({ updateDeleteUserClientList }) {
     }, [id])
 
 
+    function updateDeleteClientPropertiesList(removedProperty) {
+        setShowClientProperties(showClientProperties.filter(property => property !== removedProperty))
+    }
     
-    // const mapShowClientProperties = showClient.properties.map(property => {
-    //     return (
-    //         <CLientListPropertyCard />
-    //     )
-    // })
+    
 
     return (
         <div>
             <div className="detail-client-container">
-                <ClientInfoCard showClient={showClient} showClientProperties={showClientProperties} showClientInvoices={showClientInvoices} updateDeleteUserClientList={updateDeleteUserClientList}/>
-            {/* {mapShowClientProperties} */}
-            {/* <Link to={`/clients/${id}/invoices/new`}> */}
-                <button>add an invoice</button>
-            {/* </Link> */}
-            {/* <Link to={`/clients/${id}/properties/new`}> */}
-                <button>add a property</button>
-            {/* </Link> */}
-
-            
-            
-            
-        </div>
+                <ClientInfoCard 
+                    key={showClient.id} 
+                    showClient={showClient} 
+                    showClientProperties={showClientProperties} 
+                    showClientInvoices={showClientInvoices} 
+                    updateDeleteUserClientList={updateDeleteUserClientList} 
+                    updateDeleteClientPropertiesList={updateDeleteClientPropertiesList}
+                    />
+            </div>
         </div>
     )
 }

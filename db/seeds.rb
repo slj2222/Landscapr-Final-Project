@@ -26,10 +26,10 @@ p6 = Property.create(street_address: "333 S Three.5 St", city: "Springfield", st
 p7 = Property.create(street_address: "444 S Four St", city: "Springfield", state: "MO", zip_code: 44444, quoted_amount: 40.00, client_id: c4.id)
 p8 = Property.create(street_address: "444 S Four.5 St", city: "Springfield", state: "MO", zip_code: 44444, quoted_amount: 40.00, client_id: c4.id)
 
-i1 = Invoice.create(invoice_date: "1/1/2021", invoice_amount: 101.00, client_id: c1.id, property_id: p1.id, collected: false, invoiced: true)
-i2 = Invoice.create(invoice_date: "2/2/2022", invoice_amount: 102.00, client_id: c2.id, property_id: p2.id, collected: false, invoiced: true)
-i3 = Invoice.create(invoice_date: "3/3/2023", invoice_amount: 103.00, client_id: c3.id, property_id: p3.id, collected: true, invoiced: true)
-i4 = Invoice.create(invoice_date: "4/4/2024", invoice_amount: 104.00, client_id: c4.id, property_id: p3.id, collected: true, invoiced: true)
+i1 = Invoice.create(invoice_date: "01/01/2021", invoice_amount: 101.00, client_id: c1.id, property_id: p1.id, collected: false, invoiced: true)
+i2 = Invoice.create(invoice_date: "02/02/2022", invoice_amount: 102.00, client_id: c2.id, property_id: p2.id, collected: false, invoiced: true)
+i3 = Invoice.create(invoice_date: "03/03/2023", invoice_amount: 103.00, client_id: c3.id, property_id: p3.id, collected: true, invoiced: true)
+i4 = Invoice.create(invoice_date: "04/04/2024", invoice_amount: 104.00, client_id: c4.id, property_id: p3.id, collected: true, invoiced: true)
 
 
 puts "done seeding"
