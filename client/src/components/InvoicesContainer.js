@@ -30,7 +30,7 @@ function InvoicesContainer() {
     
     // const mapUserClientList = userClientList.map(client => client.invoices.map(invoice => <InvoiceSimpleCard key={invoice.id} invoice={invoice} />))
 
-    const mapInvoices = invoices.map(invoice => <InvoiceSimpleCard key={invoice.id} invoice={invoice} />)
+    const mapInvoices = invoices.map(invoice => <InvoiceSimpleCard key={invoice.id} invoice={invoice}/>)
 
     return (
         <div className="client-info-container">

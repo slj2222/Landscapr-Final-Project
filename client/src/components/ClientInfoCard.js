@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList, updateDeleteClientPropertiesList }) {
 
-    console.log(showClientInvoices)
+    // console.log(showClientInvoices)
     const { id } = useParams()
 
     function handleDelete() {

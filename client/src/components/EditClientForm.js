@@ -31,7 +31,7 @@ function EditClientForm({ updateUserClientList }) {
                 if (editedClient.errors) {
                     setErrors(editedClient.errors)
                 } else {
-                    console.log(editedClient)
+                    // console.log(editedClient)
                     // updateUserClientList(newClient)
                     navigate(`/clients/${id}`)
                 }

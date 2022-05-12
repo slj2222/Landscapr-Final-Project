@@ -24,7 +24,7 @@ function NewInvoiceForm() {
                 // console.log(data)
             })
     }, [id])
-    console.log(showClientProperties)
+    // console.log(showClientProperties)
 
     function handleNewInvoice(e) {
         e.preventDefault()
@@ -55,7 +55,7 @@ function NewInvoiceForm() {
             })
     }
     const mapShowClientProperties = showClientProperties.map(property => {
-        console.log(property.id)
+        // console.log(property.id)
         return (
             <option required value={property.id}>{property.street_address}, {property.city}, {property.state}, {property.zip_code}, quoted amount: ${property.quoted_amount}</option>
         )

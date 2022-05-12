@@ -13,7 +13,7 @@ function ClientListContainer() {
         fetch("/clients")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setUserClientList(data)
 
             })

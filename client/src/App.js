@@ -12,7 +12,7 @@ import MainContainer from './components/MainContainer';
 
 function App() {
   const [user, setUser] = useState(null)
-  console.log(user)
+  // console.log(user)
 
 
   //auth function

@@ -21,7 +21,7 @@ import InvoiceTotalsCard from "./InvoiceTotalsCard";
 
 function MainContainer({ user, onLogin, onLogout }) {
     const [userClientList, setUserClientList] = useState([])
-    console.log(userClientList)
+    // console.log(userClientList)
     // const [userInvoiceList, setUserInvoiceList] = useState([])
     // console.log(userInvoiceList)
 
@@ -35,7 +35,7 @@ function MainContainer({ user, onLogin, onLogout }) {
         fetch("/clients")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setUserClientList(data)
 
             })
