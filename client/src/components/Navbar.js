@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 function Navbar({ onLogout }) {
 
@@ -14,18 +15,18 @@ function Navbar({ onLogout }) {
             <div className="navbar">
                 <div className="navbar-link">
                     <Link to="/clients">
-                        <button>client list</button>
+                        <Button variant="text">client list</Button>
                     </Link>
                     <Link to="/invoices">
-                        <button>invoice list</button>
+                        <Button variant="text">invoice list</Button>
                     </Link>
                     <Link to="/invoices/totals">
-                        <button>invoice totals</button>
+                        <Button variant="text">invoice totals</Button>
                     </Link>
                 </div>
                 <div id="logout-button">
                     <Link to="/">
-                        <button onClick={handleLogout}>log out</button>
+                        <Button variant="text" onClick={handleLogout}>log out</Button>
                     </Link>
                 </div>
                 

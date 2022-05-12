@@ -3,6 +3,7 @@ class Property < ApplicationRecord
     has_many :invoices
 
     validates :street_address, presence: true
+    validates :street_address, uniqueness: true
     validates :city, presence: true
     validates :state, presence: true
     validates :state, length: {minimum:2, maximum:2}

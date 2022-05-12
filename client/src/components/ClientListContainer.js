@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ClientListCard from "./ClientListCard";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
+
+
 
 function ClientListContainer() {
     const [userClientList, setUserClientList] = useState([])
@@ -24,10 +27,10 @@ function ClientListContainer() {
     })
 
     return (
-        <div className="client-list-container">
+        <div className="client-info-container">
             <div className="add-button">
                 <Link to="/clients/new">
-                    <button> add new client </button>
+                    <Button variant="text" size="large" color="secondary"> add new client </Button>
                 </Link>
             </div>
             <div>

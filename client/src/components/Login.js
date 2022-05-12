@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 
 function Login({ onLogin }) {
@@ -26,25 +26,32 @@ function Login({ onLogin }) {
 
 
     return (
-        <div className="form">
-            <form onSubmit={handleSubmit}>
-                <div className="input-field">
-                    <label className="login-lable" htmlFor="username">
-                        username:
-                    </label>
-                    <input type="text" required name="username" value={username} onChange={e => setUsername(e.target.value)}></input>
+
+
+        // <div className="client-info-container">
+            <div className="client-info-card">
+                <div className="inner-form">
+
+
+                    <h2 className="form-title">Welcome, please log in! </h2>
+                    <form className="add-client-form" onSubmit={handleSubmit}>
+
+                        <div className="form-div">
+                            <h5 className="form-input">username:</h5>
+                            <input type="text" required name="username" value={username} onChange={e => setUsername(e.target.value)}></input>
+                        </div>
+                        <div className="form-div">
+                            <h5 className="form-input">password:</h5>
+                            <input type="text" required name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                        </div>
+
+                        <Button variant="text" type="submit" value="submit">log in</Button>
+
+                    </form>
+
                 </div>
-                <div className="input-field">
-                    <label className="login-lable" htmlFor="password">
-                        password:
-                    </label>
-                    <input type="text" required name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
-                </div>
-                <div className="login-button">
-                    <input type="submit" value="log in"></input>
-                </div>
-            </form>
-        </div>
+            </div>
+        // </div>
     )
 }
 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
 
-
+  get "/invoices-ordered", to: "users#invoices_ordered"
   get "/total-invoiced", to: "users#total_invoiced"
   get "/total-collected", to: "users#total_collected"
   get "/total-outstanding", to: "users#total_outstanding"

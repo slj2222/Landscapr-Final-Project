@@ -16,18 +16,18 @@ function ClientListCard({ client }) {
 
 
     return (
-        <div className="client-list-card">
+        <div className="client-info-card">
             <div className="client-name">
                 <Link to={`/clients/${client.id}`}>
                     <div className="client-name-1">
-                        <h4>{client.first_name} {client.last_name}</h4>
+                        <h3>{client.first_name} {client.last_name}</h3>
                     </div>
                     <div className="client-id">
                         <h5>client id: {client.id}</h5>
                     </div>
                 </Link>
             </div>
-            <div>
+            <div className="client-info-card-columns">
                 {mapClientProperties}
             </div>
         </div>
