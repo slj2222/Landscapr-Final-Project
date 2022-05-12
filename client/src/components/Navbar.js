@@ -15,18 +15,18 @@ function Navbar({ onLogout }) {
             <div className="navbar">
                 <div className="navbar-link">
                     <Link to="/clients">
-                        <Button variant="text">client list</Button>
+                        <Button variant="text" size="large">client list</Button>
                     </Link>
                     <Link to="/invoices">
-                        <Button variant="text">invoice list</Button>
+                        <Button variant="text" size="large">invoice list</Button>
                     </Link>
                     <Link to="/invoices/totals">
-                        <Button variant="text">invoice totals</Button>
+                        <Button variant="text" size="large">invoice totals</Button>
                     </Link>
                 </div>
                 <div id="logout-button">
                     <Link to="/">
-                        <Button variant="text" onClick={handleLogout}>log out</Button>
+                        <Button variant="text" size="large" onClick={handleLogout}>log out</Button>
                     </Link>
                 </div>
                 
