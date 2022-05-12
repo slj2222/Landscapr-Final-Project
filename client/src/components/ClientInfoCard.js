@@ -61,7 +61,7 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
 
             <div className="add-button">
                 <Link to={`/clients/${id}/properties/new`}>
-                    <Button variant="text"> add a property </Button>
+                    <Button variant="text" size="large"> add a property </Button>
                 </Link>
             </div>
             <div className="client-info-card">
@@ -75,7 +75,7 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
                     :
                     <div className="add-button">
                         <Link to={`/clients/${id}/invoices/new`}>
-                            <Button variant="text"> add an invoice</Button>
+                            <Button variant="text" size="large"> add an invoice</Button>
                         </Link>
                     </div>
                 }
@@ -89,10 +89,10 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
 
             <div className="add-button">
                 <Link to={`/clients/${id}/edit`}>
-                    <Button variant="text">edit client information</Button>
+                    <Button variant="text" size="large">edit client information</Button>
                 </Link>
                 <Link to="/clients">
-                    <Button variant="text" onClick={handleDelete}> remove client </Button>
+                    <Button variant="text" size="large" onClick={handleDelete}> remove client </Button>
                 </Link>
             </div>
 

@@ -30,7 +30,7 @@ function ClientListContainer() {
         <div className="client-info-container">
             <div className="add-button">
                 <Link to="/clients/new">
-                    <Button variant="text" size="large" color="secondary"> add new client </Button>
+                    <Button variant="text" size="large"> add new client </Button>
                 </Link>
             </div>
             <div>

@@ -35,11 +35,11 @@ function DetailClientPropertyCard({ property, updateDeleteClientPropertiesList }
             <h5>property id: {property.id}</h5>
             <div className="add-button">
                 <Link to={`/clients/${id}/properties/${property.id}/edit`}>
-                    <Button variant="text"> edit property </Button>
+                    <Button variant="text" size="small"> edit property </Button>
                 </Link>
             </div>
             <div className="add-button">
-                <Button variant="text" onClick={handleDelete}>remove property</Button>
+                <Button variant="text" size="small" onClick={handleDelete}>remove property</Button>
             </div>
 
             
