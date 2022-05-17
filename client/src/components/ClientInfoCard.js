@@ -2,10 +2,11 @@ import React from "react";
 import DetailClientPropertyCard from "./DetailClientPropertyCard";
 import InvoiceSimpleCard from "./InvoiceSimpleCard";
 import { Link, useParams } from "react-router-dom";
-
+import Button from '@mui/material/Button';
 
 function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, updateDeleteUserClientList, updateDeleteClientPropertiesList }) {
-    console.log(showClient.properties)
+
+    // console.log(showClientInvoices)
     const { id } = useParams()
 
     function handleDelete() {
@@ -26,7 +27,7 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
         )
     })
 
-    const mapShowClientInvoices = showClientInvoices.map(invoice => {
+    const mapShowClientInvoices = showClientInvoices.sort((a, b) => b.id - a.id).map(invoice => {
         return (
             <InvoiceSimpleCard invoice={invoice} />
         )
@@ -35,52 +36,63 @@ function ClientInfoCard({ showClient, showClientProperties, showClientInvoices, 
     return (
         <div className="client-info-container">
             <div className="client-info-card">
-                <h2>
+
+                <h2 className="info-name">
                     {showClient.first_name} {showClient.last_name}
                 </h2>
-                <div>
-                    client id: {showClient.id}
-                </div>
-                <div>
-                    phone number: {showClient.phone_number} 
-                </div>
-                <div>
-                    email address: {showClient.email_address}
+                <div className="main-name">
+                    <div>
+                        <h5>
+                            client id: {showClient.id}
+                        </h5>
+                    </div>
+                    <div>
+                        <h5>
+                            phone number: {showClient.phone_number}
+                        </h5>
+                    </div>
+                    <div>
+                        <h5>
+                            email address: {showClient.email_address}
+                        </h5>
+                    </div>
                 </div>
             </div>
 
             <div className="add-button">
                 <Link to={`/clients/${id}/properties/new`}>
-                    <button> add a property </button>
+                    <Button variant="text" size="large"> add a property </Button>
                 </Link>
             </div>
             <div className="client-info-card">
-                <h3> list of properties </h3>
+                <h3 className="info-name"> list of properties </h3>
                 <div className="client-info-card-columns">
                     {mapShowClientProperties}
-                    </div>
+                </div>
             </div>
             <div>
                 {showClientProperties.length === 0 ? <></>
                     :
                     <div className="add-button">
                         <Link to={`/clients/${id}/invoices/new`}>
-                            <button> add an invoice</button>
+                            <Button variant="text" size="large"> add an invoice</Button>
                         </Link>
                     </div>
                 }
                 <div className="client-info-card">
-                    <h3> list of invoices </h3>
-                    {mapShowClientInvoices}
+                    <h3 className="info-name"> list of invoices </h3>
+                    <div className="info-name-invoice">
+                        {mapShowClientInvoices}
+                    </div>
                 </div>
             </div>
 
             <div className="add-button">
                 <Link to={`/clients/${id}/edit`}>
-                    <button className="button" >edit client information</button>
+                    <Button variant="text" size="large">edit client information</Button>
                 </Link>
                 <Link to="/clients">
-                    <button className="button" onClick={handleDelete}>remove client</button>
+                    <Button variant="text" size="large" onClick={handleDelete}> remove client </Button>
                 </Link>
             </div>
 

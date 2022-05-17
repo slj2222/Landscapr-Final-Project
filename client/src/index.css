@@ -1,10 +1,13 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: Roboto, sans-serif;
+  /* -apple-system */
+   /* BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #33533475;   */
 }
 
 code {
@@ -15,10 +18,10 @@ code {
 
 
 #logo {
-  display: center;
+  display: flex;
   justify-content: space-around;
   max-width: 150px;
-  margin-left: 8px;
+  margin-left: 25px;
   margin-bottom: 8px;
   margin-top: 8px;
   
@@ -28,14 +31,14 @@ code {
   display: flex;
   
   width: 100%;
-  background-color: #1e5221aa;
+  background-color: #a1b0a2;
   max-height: 100%;
 }
-
+/* 
 .container {
   display: flex;
   padding: 2rem;
-}
+} */
 
 .form {
   border: 1px solid black;
@@ -86,6 +89,13 @@ code {
   margin-top: 10px;
 }
 
+a:visited {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
 .submit-button {
   display: flex;
   align-items: center;
@@ -121,17 +131,16 @@ code {
   display:flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 45px;
+  margin-top: 5px;
+  color: black;
 }
 
 .client-name {
   display: flex;
-  
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
 }
-.invoiceList{
-  /* height: 50px;
-  width: 50px; */
-}
+
 
 .client-list-container {
   margin-right: 165px;
@@ -155,26 +164,120 @@ code {
 
 .client-info-card {
   /* border: 3px solid #424B54; */
+  box-shadow: 5px 10px #335334f4;
   background-color: #DADDD8;
   margin: 40px;
   padding: 25px;
+  border-radius: 35px;
 }
 
+.add-client-form{
+  display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-content: flex-start;
+    align-items: flex-end;
+    max-width: 60%;
+}
+.add-invoice-form{
+  display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-content: flex-start;
+    align-items: flex-end;
+    max-width: 82%;
+}
 
+.form-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-input {
+margin-right: 10px;
+}
+
+.form-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-name { 
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
+  padding-bottom: 12px;
+}
+
+.info-name-invoice {
+  border-bottom: 2px solid black;
+  padding-top: 4px;
+  margin-bottom: 5px;
+  padding-bottom: 12px;
+  padding-left: 75px;
+}
 .client-info-card-columns {
   /* border: 3px solid #424B54; */
   background-color: #DADDD8;
-  
-  padding-bottom: 35px;
+  padding-top: 18px;
+  padding-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   align-content: center;
   flex-wrap: wrap;
   flex-direction: row;
+  border-bottom: 2px solid black;
+    margin-bottom: 5px;
+    padding-bottom: 12px;
+}
+.main-name {
+  background-color: #DADDD8;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-bottom: 2px solid black;
+    margin-bottom: 3px;
 }
 
 
+
+
+.property {
+  margin-bottom: 5px;
+}
+
+
+.new-invoice-form {
+  display: flexbox;
+}
+
+.client-info-container {
+  /* border: 3px solid #424B54; */
+  background-color: #33533475;
+  
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-bottom: 55px;
+  padding-top: 30px;
+  /* margin-left: 80px; */
+  /* margin-right: 80px; */
+}
+
+
+
+.invoices-container {
+  border: 3px solid #424B54;
+  display: flex;
+  background-color: #33533475;
+  justify-content: center;
+  margin-left: 80px;
+  margin-right: 80px;
+}
 
 .invoice-simple-card {
   border: 3px solid #424B54;
@@ -183,18 +286,37 @@ code {
   padding: 25px;
 }
 
-
-
-.new-invoice-form {
-  display: flexbox;
+.invoice-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  padding-left: 39px;
 }
-
-.client-info-container {
-  border: 3px solid #424B54;
-  background-color: #33533475;
+.invoice-container {
   
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 75px;
-  padding-top: 30px;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+.invoice-span {
+  padding-right: 20px;
+  margin-right: 1px;
+  width: 175px;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+#not-paid {
+  color: red;
+}
+
+/* .invoiceList{
+  height: 50px;
+  width: 50px;
+} */

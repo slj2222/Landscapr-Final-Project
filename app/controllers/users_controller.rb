@@ -17,6 +17,13 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+    def invoices_ordered
+        user = User.find_by(id: session[:user_id])
+        orderedInvoices = user.ordered_invoices
+        # byebug
+        render json: orderedInvoices
+    end
+
     def total_invoiced
         user = User.find_by(id: session[:user_id])
         totalInvoiced = user.total_invoiced

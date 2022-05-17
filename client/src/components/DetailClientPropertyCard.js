@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 function DetailClientPropertyCard({ property, updateDeleteClientPropertiesList }) {
     const { id } = useParams()
@@ -18,30 +19,27 @@ function DetailClientPropertyCard({ property, updateDeleteClientPropertiesList }
 
     return (
         <div className="detail-client-property">
-            <div>
+            <div className="property">
                 {property.street_address}
             </div>
-            <div>
-                {property.city}
+            <div className="property">
+                {property.city}, {property.state}
             </div>
-            <div>
-                {property.state}
-            </div>
-            <div>
+            <div className="property">
                 {property.zip_code}
             </div>
             
             <h4>
                 quoted amount: ${property.quoted_amount}
                 </h4>
-            <h5>Property id: {property.id}</h5>
+            <h5>property id: {property.id}</h5>
             <div className="add-button">
                 <Link to={`/clients/${id}/properties/${property.id}/edit`}>
-                    <button>edit property </button>
+                    <Button variant="text" size="small"> edit property </Button>
                 </Link>
             </div>
             <div className="add-button">
-                <button onClick={handleDelete}>remove property</button>
+                <Button variant="text" size="small" onClick={handleDelete}>remove property</Button>
             </div>
 
             

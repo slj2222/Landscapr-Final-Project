@@ -6,10 +6,19 @@ class User < ApplicationRecord
     validates :username, presence: true
     validates :password, presence: true
 
-    
+    def ordered_invoices
+        # self.clients.first.invoices
+        # clientsArr = []
+        # invoices = []
+        # byebug
+        # self.clients.map{|c| clientsArr.push(c)}
+        # self.clients.map{|c| invoices.push(c.invoices)}
+        # invoices.sort_by(&:created_at)
+        self.clients.map{|c| c.invoices}.map{|i| i.sort_by(&:created_at)}.flatten!.reverse   
+     end
 
     def total_invoiced
-        self.clients.map{|client| client.invoices.sum{|i| i.invoice_amount}}.sum{|t| t}
+        self.clients.map{|c| c.invoices.sum{|i| i.invoice_amount}}.sum{|t| t}
     end
 
     def total_collected

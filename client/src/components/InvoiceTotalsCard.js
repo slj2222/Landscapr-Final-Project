@@ -33,19 +33,27 @@ function InvoiceTotalsCard() {
     }, [totalOutstanding])
 
     return (
-        <div className="invoice-totals-card">
-            <div id="totals">
-                <div>
-                total invoiced: $ {totalInvoiced}
+        <div className="client-info-container">
+            <div className="client-info-card">
+                <div className="client-info-card-columns">
+                    <div className="">
+                        <h3>
+                            total invoiced: $ {totalInvoiced}
+                        </h3>
+                    </div>
+                    <div>
+                        <h3>
+                            total collected: $ {totalCollected}
+                        </h3>
+                    </div>
+                    <div>
+                        <h3>
+                            total outstanding: $ {totalOutstanding}
+                        </h3>
+                    </div>
                 </div>
-                <div>
-                    total collected: $ {totalCollected}
-                </div>
-                <div>
-                    total outstanding: $ {totalOutstanding}
-                </div>
+            </div>
         </div>
-    </div>
     )
 }
 
